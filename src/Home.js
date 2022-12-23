@@ -1,59 +1,107 @@
 import styled from "styled-components";
-import imagem from "./assets/background_port.jpg";
+import imagem from "./assets/background.png";
 import Header from "./Header";
-import { useNavigate } from "react-router-dom";
+import Footer from "./Footer";
+import profile from "../src/assets/profile.jpeg"
+import literaBooks from "../src/assets/fotoLiteraBooks.png"
+
 export default function Home() {
 
     return (
-
-        <HomeStyle>
-            <Header />
-               
+        <HomeStyle>  
+           <Header />
+           <Main>
+                <img src={profile} alt='' />
+                <Infos>
+                <h3> Olá, meu nome é</h3><b /> 
+                <h2>Caio Vitor</h2> <b />
+                <h3> e eu sou um desenvolvedor Full-stack</h3>
+                </Infos>
+           </Main>
+           <Description>
+            <h3> 
+                Venha conhecer alguns dos mais de 23 projetos que já desenvolvi.
+            </h3>
+            <Projects>
+                <ProjectsDescription>
+                    <h4> LiteraBooks</h4>
+                    <img src={literaBooks} alt='' />
+                </ProjectsDescription>
+                <ProjectsDescription>
+                    <h4> Trackit</h4>
+                    <img src={literaBooks} alt='' />
+                </ProjectsDescription>
+                <ProjectsDescription>
+                    <h4> Sing Me a Song</h4>
+                    <img src={literaBooks} alt='' />
+                   
+                </ProjectsDescription>
+            </Projects>
             
-            <Main>
-                <h3> Porfolio</h3>
-                <h2> Caio Vitor</h2>
-                <h4> Full-Stack developer </h4>
-                <button> Saiba mais</button>
-            </Main>
-            <Footer> 
-                <img onClick={() => window.open('https://www.linkedin.com/in/caiovitor33/')} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />         
-                <img onClick={() => window.open('https://github.com/CaioVitor1')} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" />
-          
-          
-           
-          
-            </Footer>
+
+           </Description>   
         </HomeStyle>
     )
 }
 
 
-const HomeStyle = styled.div`
-
-width: 100%;
-height: 100vh;
-background-image: url(${imagem});
-background-color: white;
-
+const ProjectsDescription = styled.div`
+border: solid;
+border-width: 0px 1px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+img{
+    width: 75%;
+    margin: 15px;
+   
+}
+h4{
+   
+    font-size: 20px;
+    color: #FFD700;
+}
 `
 
-const Main = styled.div`
-margin-top: 170px;
+const Projects = styled.div`
+margin-top: 20px;
+display: flex;
+`
+const Description = styled.div`
+
+margin-top: 90px;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 
+h3{
+font-size: 20px;
+font-style: italic;
+color: white;   
+}
+`
+const HomeStyle = styled.div`
+width: 100%;
+height: 170vh;
+background-image: url(${imagem});
+background-color: white;
+`
+
+const Main = styled.div`
+margin-top: 60px;
+display: flex;
+justify-content: center;
+align-items: center;
 border-color: white;
 color: white;
 h3{
     font-family: 'Oswald';
     font-style: normal;
     font-weight: 700;
-    font-size: 37px;
+    font-size: 30px;
     line-height: 40px;
-    color: #6495ED;
     margin-bottom: 20px;
 }
 h2{
@@ -62,17 +110,14 @@ h2{
     font-weight: 700;
     font-size: 80px;
     line-height: 40px;
-    color: white; 
+    color: #FFD700; 
     margin-bottom: 30px;
 }
-h4{
-    font-family: 'Lato';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 25px;
-    line-height: 23px;
-    color: #FFFFFF;
-    margin-bottom: 30px;
+img{
+    width: 15%;
+    height: 20%;
+    border-radius: 20px;
+    margin-right: 30px;
 }
 button{
     border:solid;
@@ -91,17 +136,6 @@ button:hover{
     opacity:1.0;
 }
 `
-const Footer = styled.div`
-margin-top: 140px;
-display: flex;
-justify-content: center;
-align-items: center;
-background-color: white;
-
-img{
-    width: 45px;
-    height: 45px;
-    margin-right: 40px;
-}
+const Infos = styled.div`
 
 `

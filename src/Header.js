@@ -16,7 +16,7 @@ export default function Header() {
     }
     return(
         <HeaderStyle>
-                <Name onClick={() => navigate('/')}> CV</Name>
+                <Name onClick={() => navigate('/')}> caioVitor</Name>
                 <Options>
                     <Sobre onClick={() => navigate('/about')}> Sobre</Sobre>
                     <Projetos> 
@@ -36,7 +36,6 @@ export default function Header() {
 }
 
 const HeaderStyle = styled.div`
-background-color: black;
 height: 70px;
 display: flex;
 justify-content: space-between;
@@ -46,12 +45,24 @@ const Name = styled.div`
 color: white;
 font-size: 24px;
 border-radius: 50px;
-background-color: #6495ED;
-height: 50px;
-width: 50px;
+
+
 display: flex;
 justify-content: center;
 align-items: center;
+::before {
+    content: "<";
+    font-size: 2rem;
+    color:#FFD700;
+    font-weight: 700;
+}
+
+::after {
+    content: "/>";
+    font-size: 2rem;
+    color: #FFD700;
+    font-weight: 700;
+}
 `
 
 const Options = styled.div`
@@ -69,11 +80,12 @@ font-size: 24px;
 `
 
 const Projetos = styled.div`
-margin-top:160px;
+margin-top:138px;
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+
 
 `
 
@@ -84,11 +96,13 @@ display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
+background-color: black;
+border-radius: 20px;
 h3{
     
-    border:solid;
+    
     border-radius: 20px;
-    border-color: #6495ED;
+   
     border-width: 2px;
     margin-bottom: 5px;
     padding: 1px;

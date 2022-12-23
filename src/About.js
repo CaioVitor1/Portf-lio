@@ -2,6 +2,7 @@ import Header from "./Header";
 import styled from "styled-components";
 import imagem from "./assets/background_port.jpg";
 import profile from "./assets/profile.jpeg"
+import Footer from "./Footer";
 export default function About() {
     return (
         <AboutStyle>
@@ -28,6 +29,7 @@ export default function About() {
                     </Title>
                 </Description>
             </AboutMain>
+            <Footer />
         </AboutStyle>
     )
 }
@@ -35,15 +37,13 @@ export default function About() {
 const AboutStyle = styled.div`
 width: 100%;
 height: 100vh;
-
 background-color: white;
 `
 
 const AboutMain = styled.div`
 display: flex;
-margin: 80px 20px 20px 80px;
-border:solid;
-border-color: white;
+margin: 120px 20px 20px 80px;
+
 img{
     margin-top: 60px;
     width: 200px;

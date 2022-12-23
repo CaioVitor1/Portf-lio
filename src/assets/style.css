@@ -1,0 +1,30 @@
+.home {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../img/background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    box-shadow: inset 0px -40px 40px #000;
+  }
+  
+  .profile__foto {
+    filter: grayscale();
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    gap: 48px;
+  }
+  
+  .profile__text {
+    font-size: 1.5rem;
+  }
+  
+  .profile__name {
+    font-size: 4rem;
+    color: var(--primary-color);
+  }
+  
