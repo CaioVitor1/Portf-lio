@@ -1,11 +1,14 @@
 import Header from "./Header"
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import literaBooksThumb from "../src/assets/leitor.jpg"
-import trackitLogo from "../src/assets/trackitLogo.png"
-import signmeasong from "../src/assets/signmeasong.svg"
+
+import literaBooksThumb from "../src/assets/literaBooks/leitor.jpg"
+import trackitLogo from "../src/assets/Trackit/trackitLogo.png"
+import signmeasong from "../src/assets/singme/signmeasong.svg"
+import * as dataProject from "./dataProjects" 
+import { useState, useEffect } from "react";
 function RenderProjects({ projectId, name, image, description, navigate}){
-    console.log("oi")
+    
     return (
           <OneMainProject>
             <h3> {name}</h3>
@@ -18,24 +21,29 @@ function RenderProjects({ projectId, name, image, description, navigate}){
   }
 
 export const MainProject = () => {
+  const [main, setMain] = useState([])
+  const [front, setFront] = useState([])
+  const [back, setBack] = useState([])
+
+  useEffect(() => {
+    async function getProject() {
+
+      const responseMain = await dataProject.projectsMain()
+      const responseFront = await dataProject.projectsFront()
+      const responseBack = await dataProject.projectsBack()
+
+      console.log(responseMain)
+      setMain(responseMain)
+      setFront(responseFront)
+      setBack(responseBack)
+      
+    }
+    getProject();
+  }, []);
+
+// FALTA ADICIONAR O MYWALLET E O SHORTLY!!!!
   const navigate = useNavigate()
-    const url = [  	
-        {id: 1,
-        name:	"LiteraBooks",
-        banner:	literaBooksThumb,
-        description:	"Projeto autoral e Full-Stack onde desenvolvi uma plataforma para usuários compartilharem suas experiências literárias!"
-        },
-        {id: 2,
-        name:	"Trackit",
-        banner:	trackitLogo,
-        description:	"Projeto Front-End onde o objetivo foi contruir uma aplicação completa de acompanhamento de hábitos! Com direito a cadastro, login e muitas bibliotecas!!"
-        },
-        {id: 3,
-        name:	"Sing me a Song",
-        banner:	signmeasong,
-        description:	"Neste projeto recebi um front-end e back-end completamente implementados e fui responsável pela implementação de todos os testes automatizados do projeto!! "
-        } 
-        ];
+  
     return(
         <>
         <Header />
@@ -44,20 +52,20 @@ export const MainProject = () => {
                 Principais Projetos
             </Title>
             <MainProjects>
-            {url.map((item) => <RenderProjects projectId={item.id} navigate={navigate} name={item.name} image={item.banner} description={item.description}/>)}
+            {main.map((item) => <RenderProjects projectId={item.id} navigate={navigate} name={item.name} image={item.banner} description={item.description}/>)}
             </MainProjects>
            
             <Title>
             Front-End
             </Title>
             <MainProjects>
-            {url.map((item) => <RenderProjects projectId={item.id} navigate={navigate} name={item.name} image={item.banner} description={item.description}/>)}
+            {front.map((item) => <RenderProjects projectId={item.id} navigate={navigate} name={item.name} image={item.banner} description={item.description}/>)}
             </MainProjects>
             <Title>
                 Back-End
             </Title>
             <MainProjects>
-            {url.map((item) => <RenderProjects projectId={item.id} navigate={navigate} name={item.name} image={item.banner} description={item.description}/>)}
+            {back.map((item) => <RenderProjects projectId={item.id} navigate={navigate} name={item.name} image={item.banner} description={item.description}/>)}
             </MainProjects>
         </ProjectStyle>
        
@@ -85,6 +93,10 @@ const MainProjects = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
+  border:solid;
+  margin: 20px 0px;
+  border-color: yellow;
+  border-width: 1px 0px;
   
 `
 const OneMainProject = styled.div`
@@ -96,11 +108,11 @@ const OneMainProject = styled.div`
   border-color: yellow;
   border:solid;
   border-width: 0px 5px 0px 0px;
-  width: 30%;
+  width: 25%;
   background-color: black;
   padding:11px;
   border-color:yellow;
-  height: 500px;
+  height: 400px;
   img{
     width: 90%;
     margin:10px;

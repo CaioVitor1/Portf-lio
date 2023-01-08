@@ -1,9 +1,8 @@
 import styled from "styled-components"
 import Header from "./Header";
 import { useParams } from "react-router-dom";
-import literaBooksThumb from "../src/assets/leitor.jpg";
 import { useEffect, useState } from "react";
-import * as dataProject from "./dataProjects" 
+import * as dataProject from "./dataDescription" 
 
 function RenderTechnologies({tech}){
     return(
@@ -72,8 +71,6 @@ export const ProjectDescription = () => {
                 <InfoProject>
                     <ImageProject>
                         <img src={project.image1} alt='' />
-                        <img src={project.image2} alt='' />
-                        <img src={project.image3} alt='' />
                     </ImageProject>
                     
                         <Description>
@@ -85,7 +82,7 @@ export const ProjectDescription = () => {
                                         
                                 </Technologies>
                                 <Technologies>
-                                        <h2> Funcionalides</h2>
+                                        <h2> Funcionalidades</h2>
                                         {functionalities.map((tech) => <RenderTechnologies key={tech.id} tech={tech}/>)}
                                         
                                 </Technologies>
@@ -123,14 +120,11 @@ const InfoProject = styled.div`
     
 `
 const ImageProject = styled.div`
-    width: 40%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    
+    width: 55%;
+    height: 450px;
     img{
-        width: 90%;
+        height: 100%;
+        width: 100%;
         border:solid;
         margin-top: 20px;
     }
