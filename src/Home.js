@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import imagem from "./assets/background.png";
 import Header from "./Header";
-import Footer from "./Footer";
+
 import profile from "../src/assets/profile.jpeg"
+import About from "./About";
+import { MainProject } from "./MainProjects";
 
 export default function Home() {
     const [text, setText] = useState('');
@@ -19,6 +21,7 @@ export default function Home() {
     }, [index]);
 
     return (
+        <>
         <HomeStyle>  
            <Header />
            <Main>
@@ -27,15 +30,18 @@ export default function Home() {
                 <h3> Olá, meu nome é</h3><b /> 
                 <h2>Caio Vitor</h2> <b />
                 <h4> {text}</h4>
+                <img onClick={() => window.open('https://www.linkedin.com/in/caiovitor33/')} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" />       
+           <img onClick={() => window.open('https://github.com/CaioVitor1')} src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original-wordmark.svg" />
                 </Infos>
-           </Main>
-           <Description>
-                Venha conhecer alguns dos mais de 23 projetos que já desenvolvi.
-           </Description>   
-           <Footer />
+           </Main>   
+           
         </HomeStyle>
+        <About />
+        <MainProject />
+        </>
     )
 }
+
 
 const HomeStyle = styled.div`
 width: 100%;
@@ -43,24 +49,11 @@ height: 100vh;
 background-image: url(${imagem});
 `
 
-const Description = styled.h3`
-margin: 50px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-font-size: 20px;
-font-style: italic;
-color: white;   
-`
-
 const Main = styled.div`
 margin-top: 60px;
 display: flex;
 justify-content: center;
 align-items: center;
-border-color: white;
-color: white;
 h3{
     font-family: 'Oswald';
     font-style: normal;
@@ -68,6 +61,7 @@ h3{
     font-size: 30px;
     line-height: 40px;
     margin-bottom: 20px;
+    color:white;
 }
 h2{
     font-family: 'Lato';
@@ -75,14 +69,14 @@ h2{
     font-weight: 700;
     font-size: 80px;
     line-height: 40px;
-    
+    color: white;
     margin-bottom: 30px;
 }
 h4{
-    color: #FFD700; 
+    color: white; 
     font-size: 30px;
 }
-img{
+>img{
     width: 15%;
     height: 20%;
     border-radius: 20px;
@@ -96,7 +90,7 @@ button{
     background-color: white;
     width: 140px;
     height: 50px;
-    color: black;
+    color: white;
     font-size: 20px;
     font-family: 'Lato';
     font-style: normal;
@@ -104,7 +98,14 @@ button{
 button:hover{
     opacity:1.0;
 }
+hr{
+    color:blue;
+}
 `
 const Infos = styled.div`
+img{
+    margin: 20px 5px;
+    width: 12%;
 
+}
 `

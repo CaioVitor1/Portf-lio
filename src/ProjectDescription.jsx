@@ -39,7 +39,6 @@ export const ProjectDescription = () => {
 
     return(
         <>
-        <Header />
         <ProjectDescriptionBody>
             {(project) && (
             <BodyProject>
@@ -100,23 +99,24 @@ export const ProjectDescription = () => {
 }
 
 const ProjectDescriptionBody = styled.div`
-    
+background-color: black;
+
 `
 const BodyProject = styled.div`
-    
+background-color: black;
 `
 const TitleProject = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 50px;
-    color:yellow;
+    color:white;
     
 `
 const InfoProject = styled.div`
     display: flex;
     justify-content: space-between;
-    margin: 30px;
+    padding: 30px;
     
 `
 const ImageProject = styled.div`
@@ -161,7 +161,7 @@ h2{
     color:yellow;
     margin-bottom: 30px;
 }
-h3{
+>h3{
     font-size: 25px;
     color:white;
 }
@@ -179,8 +179,11 @@ const Repository = styled.div`
     align-items: center;
     width: 10%;
     height: 40px;
-    background-color: black;
+    background-color: white;
     color:white;
     border-radius: 20px;
     margin-right: 30px;
+    h3{
+        color:black;
+    }
 `

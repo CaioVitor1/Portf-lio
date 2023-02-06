@@ -3,7 +3,6 @@ import image from "../src/assets/background.png"
 
 export const GlobalStyled = createGlobalStyle`
     body{
-        background-image: url(${image});
         font-family: 'Saira Condensed', sans-serif;
     }
     *{

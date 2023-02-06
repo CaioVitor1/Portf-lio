@@ -41,7 +41,7 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 border:solid;
-border-color: #FFD700; 
+border-color: white; 
 border-width: 0px 0px 1px 0px;
 padding:0px 70px;
 `
@@ -55,14 +55,14 @@ align-items: center;
 ::before {
     content: "<";
     font-size: 2rem;
-    color:#FFD700;
+    color:white;
     font-weight: 700;
 }
 
 ::after {
     content: "/>";
     font-size: 2rem;
-    color: #FFD700;
+    color: white;
     font-weight: 700;
 }
 `

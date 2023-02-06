@@ -15,6 +15,7 @@ function RenderProjects({ projectId, name, image, description, navigate}){
             <img src={image} alt='' />
             <h4> {description}</h4>
             <KnowMore onClick={() => navigate(`/description/${projectId}`)}>Saiba mais</KnowMore>
+            (Veja tecnologias utilizadas!)
           </OneMainProject>
           
     )
@@ -46,24 +47,19 @@ export const MainProject = () => {
   
     return(
         <>
-        <Header />
         <ProjectStyle>
             <Title>
-                Principais Projetos
+               Projetos
             </Title>
             <MainProjects>
             {main.map((item) => <RenderProjects projectId={item.id} navigate={navigate} name={item.name} image={item.banner} description={item.description}/>)}
             </MainProjects>
            
-            <Title>
-            Front-End
-            </Title>
+            
             <MainProjects>
             {front.map((item) => <RenderProjects projectId={item.id} navigate={navigate} name={item.name} image={item.banner} description={item.description}/>)}
             </MainProjects>
-            <Title>
-                Back-End
-            </Title>
+            
             <MainProjects>
             {back.map((item) => <RenderProjects projectId={item.id} navigate={navigate} name={item.name} image={item.banner} description={item.description}/>)}
             </MainProjects>
@@ -74,18 +70,18 @@ export const MainProject = () => {
 }
 
 const ProjectStyle = styled.div`
-    
+background-color: black;
 
 `
 
 const Title = styled.div`
-
-    font-size: 30px;
+    padding-top: 60px;
+    font-size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top:20px;
-    color: yellow;
+    color: white;
+   
 
 `
 const MainProjects = styled.div`
@@ -93,26 +89,24 @@ const MainProjects = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  border:solid;
-  margin: 20px 0px;
-  border-color: yellow;
-  border-width: 1px 0px;
-  
+  border-color: pink;
+  background-color: black;
 `
 const OneMainProject = styled.div`
-  margin: 50px 10px;
+  margin: 30px 0px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-color: yellow;
+  border-color: black;
   border:solid;
-  border-width: 0px 5px 0px 0px;
   width: 25%;
-  background-color: black;
+  background-color: white;
   padding:11px;
-  border-color:yellow;
+  border-color:pink;
   height: 400px;
+  
+  box-shadow: 5px 5px grey;
   img{
     width: 90%;
     margin:10px;
@@ -120,10 +114,10 @@ const OneMainProject = styled.div`
   }
   h3{
     font-size: 30px;
-    color:yellow;
+    color:black;
   }
   h4{
-    color:white;
+    color:black;
     font-size: 20px;
     text-align: justify;
     
@@ -131,10 +125,10 @@ const OneMainProject = styled.div`
 `
 
 const KnowMore = styled.div`
-color:white;
+color:black;
 font-size: 25px;
 margin-top:20px;
 :hover{
-    color: yellow;
+    color: blue;
 }
 `
